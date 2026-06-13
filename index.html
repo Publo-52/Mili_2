@@ -47,28 +47,41 @@
     <div class="paper">
         <p class="p1">Drag the papers to move!</p>
     </div>
+    <script src="script.js"></script>
 
     <!-- Music Player -->
     <audio id="bgMusic" loop src="Audio/song.mpeg"></audio>
 
     <button id="musicBtn" onclick="toggleMusic()" title="Play Music">🎵</button>
 
-    <script src="./script.js"></script>
-
     <script>
         const music = document.getElementById('bgMusic');
         const btn = document.getElementById('musicBtn');
         let playing = false;
+        let unlocked = false;
+
+        // Unlock + autoplay on FIRST touch anywhere on mobile
+        function unlockAudio() {
+            if (unlocked) return;
+            unlocked = true;
+            music.play().then(() => {
+                playing = true;
+                btn.textContent = '🎵';
+            }).catch(() => { });
+            document.removeEventListener('touchstart', unlockAudio);
+            document.removeEventListener('click', unlockAudio);
+        }
+
+        document.addEventListener('touchstart', unlockAudio);
+        document.addEventListener('click', unlockAudio);
 
         function toggleMusic() {
             if (playing) {
                 music.pause();
-                btn.textContent = '⏸';
-                btn.title = 'Pause Music';
+                btn.textContent = '▶️';
             } else {
                 music.play();
                 btn.textContent = '🎵';
-                btn.title = 'Pause Music';
             }
             playing = !playing;
         }
