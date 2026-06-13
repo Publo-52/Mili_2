@@ -48,7 +48,31 @@
         <p class="p1">Drag the papers to move!</p>
     </div>
 
+    <!-- Music Player -->
+    <audio id="bgMusic" loop src="Audio/song.mpeg"></audio>
+
+    <button id="musicBtn" onclick="toggleMusic()" title="Play Music">🎵</button>
+
     <script src="./script.js"></script>
+
+    <script>
+        const music = document.getElementById('bgMusic');
+        const btn = document.getElementById('musicBtn');
+        let playing = false;
+
+        function toggleMusic() {
+            if (playing) {
+                music.pause();
+                btn.textContent = '⏸';
+                btn.title = 'Pause Music';
+            } else {
+                music.play();
+                btn.textContent = '🎵';
+                btn.title = 'Pause Music';
+            }
+            playing = !playing;
+        }
+    </script>
 </body>
 
 </html>

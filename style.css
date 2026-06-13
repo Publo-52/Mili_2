@@ -12,8 +12,6 @@ body {
     background-position: center center;
 }
 
-
-
 .paper {
     background-image: url("Images/2-Millimeter-Paper-Background-copy_img.webp");
     background-size: 500px;
@@ -68,7 +66,6 @@ img {
     background-position: center center;
     background-repeat: no-repeat;
     opacity: 0.6;
-
 }
 
 p {
@@ -79,6 +76,33 @@ p {
     user-select: none;
     filter: drop-shadow(2px 1.5px 1px rgba(0, 0, 105, 0.9));
     margin: 10px 0;
+}
+
+/* Music Button */
+#musicBtn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: rgb(118, 74, 74);
+    color: rgb(14, 1, 1);
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 5px 18px rgba(0, 0, 0, 0.45);
+    z-index: 9999;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#musicBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 8px 24px rgba(0, 0, 0, 0.55);
+}
+
+#musicBtn:active {
+    transform: scale(0.95);
 }
 
 @media (max-width: 600px) {

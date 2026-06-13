@@ -50,7 +50,6 @@ class Paper {
             }
         };
 
-
         document.addEventListener('mousemove', (e) => {
             handleMove(e.clientX, e.clientY);
         });
@@ -76,7 +75,6 @@ class Paper {
             this.holdingPaper = false;
             this.rotating = false;
         });
-
 
         paper.addEventListener('touchstart', (e) => {
             if (this.holdingPaper) return;
